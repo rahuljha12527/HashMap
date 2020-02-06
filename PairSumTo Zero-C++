@@ -1,0 +1,42 @@
+ 	#include<unordered_map>
+	void PairSum(int *input, int n) {	 
+		
+	 	unordered_map<int,int> map;
+        
+        for(int i=0;i<n;i++){
+            
+            
+            if(map.count(input[i])==0){
+                map[input[i]]=1;
+            }
+            else{
+                map[input[i]]++;
+            }
+        }
+     	
+        
+        for(int i=0;i<n;i++){
+            
+            int freq=map[input[i]];
+            int temp=-input[i];
+            
+            if(map.count(temp) && freq>0){
+                
+                int freq2=map[temp];
+                
+                int count=freq*freq2;
+                while(count>0){
+                    
+                    cout<<min(temp,input[i])<<" "<<max(temp,input[i])<<endl;
+                    count--;
+                }
+                
+                map[input[i]]=0;
+                map[temp]=0;
+            }
+            
+        }
+     	
+     	
+ 	}
+
