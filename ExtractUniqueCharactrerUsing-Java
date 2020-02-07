@@ -1,0 +1,30 @@
+import java.util.*;
+public class solution {
+
+	public static String uniqueChar(String str){
+		
+        HashMap<Character,Boolean> map=new HashMap<>();
+        if(str.length()==0){
+            String temp="";
+            return temp;
+        }
+        
+        
+        String temp="";
+        for(int i=0;i<str.length();i++){
+            if(map.containsKey(str.charAt(i))){
+                
+                map.put(str.charAt(i),false);
+            }
+            
+            else{
+                temp=temp+str.charAt(i);
+                map.put(str.charAt(i),true);
+            }
+            
+        }
+        
+        return temp;
+
+	}
+}
