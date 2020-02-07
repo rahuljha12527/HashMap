@@ -1,0 +1,38 @@
+#include<unordered_map>
+#include<iostream>
+#include<cstring>
+char* uniqueChar(char *str){
+    
+    unordered_map<char,bool>  map;
+    
+    
+    int len=strlen(str);
+    if(len==0){
+     char *ans=new char[1];
+      ans[0]='\0';
+      
+        return ans;
+        
+    }
+    char  *ans=new char[len];
+   int i=0;
+    for( int currIndex=0;currIndex<len;currIndex++){
+        
+      //  if(map.count(map[str[currIndex]])>0){
+        //    continue;
+        //}
+        
+       // char currChar=str[currIndex];
+        
+         if(map.count(str[currIndex])==0){
+            map[str[currIndex]]=true;
+            ans[i]=str[currIndex];
+            i++;
+        }
+        
+    }
+    ans[i]='\0';
+    
+    return ans;
+    
+}
